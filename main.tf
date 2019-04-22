@@ -7,7 +7,7 @@ provider "aws" {
 
 resource "aws_launch_configuration" "nv-dev-watermark-launch-config-07Feb2019" {
         name = "nv-dev-watermark-launch-config-07Feb2019"
-        image_id = "${var.Ami_ID}"
+        image_id = "${var.ami_id}"
         instance_type = "${var.instance_type}"
         security_groups = ["${var.security_groups}"]
         key_name = "My_linux_new"
