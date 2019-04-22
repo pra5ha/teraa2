@@ -6,7 +6,7 @@ provider "aws" {
 #Creating the launch configuration
 
 resource "aws_launch_configuration" "nv-dev-watermark-launch-config-07Feb2019" {
-        name = "nv-dev-watermark-launch-config-${count.index}+1"
+        name = "nv-dev-watermark-launch-config-${count.index+1}"
         image_id = "${var.ami_id}"
         instance_type = "${var.instance_type}"
         security_groups = ["${var.security_groups}"]
