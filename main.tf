@@ -15,16 +15,11 @@ resource "aws_launch_configuration" "nv-dev-watermark-launch-config-07Feb2019" {
         ebs_optimized = "false"
         associate_public_ip_address = "true"
         user_data = "${file("user-data.sh")}"
-        tag {
-                key = "Name"
-                value = "nv-dev-watermark"
-                propagate_at_launch = true
-        }
-        tag {
-                key = "Project"
-                value = "reveal-dev"
-                propagate_at_launch = true
-         }
+         tags {
+                Name         = "nv-dev-watermark"
+                Project      = "reveal-dev"
+                Environment  = "dev"
+  }
 }
 
 # Creating Autoscaling Group
@@ -39,16 +34,11 @@ resource "aws_autoscaling_group" "nv-dev-watermark-asg" {
         max_size = "${var.max_size}"
         health_check_type = "ELB"
         load_balancers = ["${var.load_balancers}"]
-        tag {
-                key = "Name"
-                value = "nv-dev-watermark"
-                propagate_at_launch = true
-        }
-        tag {
-                key = "Project"
-                value = "reveal-dev"
-                propagate_at_launch = true
-         }
+        tags {
+                Name         = "nv-dev-watermark"
+                Project      = "reveal-dev"
+                Environment  = "dev"
+  }
         lifecycle {
                 create_before_destroy = true
 
