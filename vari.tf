@@ -4,8 +4,8 @@ variable "region" {
 variable "security_groups" {
   default = "sg-0ae26b0d844a1f4b3"
 }
-variable "Ami_ID" {
-  default = "$ami_id"
+variable "ami_id" {
+  default = ""
 }
 variable "subnet_id" {
   default = "subnet-0d4a269bf1aa7051c"
