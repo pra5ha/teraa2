@@ -58,4 +58,3 @@ resource "aws_autoscaling_group" "nv-dev-watermark-asg" {
                 create_before_destroy = true
 
         }
-}
