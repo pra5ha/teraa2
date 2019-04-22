@@ -15,7 +15,7 @@ resource "aws_launch_configuration" "nv-dev-watermark-launch-config-07Feb2019" {
         ebs_optimized = "false"
         associate_public_ip_address = "true"
         user_data = "${file("user-data.sh")}"
-        tags = [
+        tag = [
          {
            key                 = "Name"
            value               = "nv-dev-watermark"
@@ -41,7 +41,7 @@ resource "aws_autoscaling_group" "nv-dev-watermark-asg" {
         max_size = "${var.max_size}"
         health_check_type = "ELB"
         load_balancers = ["${var.load_balancers}"]
-        tags = [
+        tag = [
          {
            key                 = "Name"
            value               = "nv-dev-watermark"
