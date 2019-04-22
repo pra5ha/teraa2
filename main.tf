@@ -15,7 +15,11 @@ resource "aws_launch_configuration" "nv-dev-watermark-launch-config-07Feb2019" {
         ebs_optimized = "false"
         associate_public_ip_address = "true"
         user_data = "${file("user-data.sh")}"
-}
+        lifecycle {
+                create_before_destroy = true
+
+        }
+        }
 
 # Creating Autoscaling Group
 
