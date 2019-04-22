@@ -15,18 +15,6 @@ resource "aws_launch_configuration" "nv-dev-watermark-launch-config-07Feb2019" {
         ebs_optimized = "false"
         associate_public_ip_address = "true"
         user_data = "${file("user-data.sh")}"
-        tag = [
-         {
-           key                 = "Name"
-           value               = "nv-dev-watermark"
-           propagate_at_launch = true
-         },
-          {
-            key                 = "Project"
-            value               = "reveal-dev"
-            propagate_at_launch = true
-         }
-        ]
 }
 
 # Creating Autoscaling Group
