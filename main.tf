@@ -5,7 +5,7 @@ provider "aws" {
 
 #Creating the launch configuration
 
-resource "aws_launch_configuration" "nv-dev-watermark-launch-config-${count.index+one}" {
+resource "aws_launch_configuration" "nv-dev-watermark-launch-config" {
         name = "nv-dev-watermark-launch-config-${count.index+one}"
         image_id = "${var.ami_id}"
         instance_type = "${var.instance_type}"
@@ -26,7 +26,7 @@ resource "aws_launch_configuration" "nv-dev-watermark-launch-config-${count.inde
 resource "aws_autoscaling_group" "nv-dev-watermark-asg" {
         name = "nv-dev-watermark-asg"
         availability_zones = ["${var.avaliblity_zone}"]
-        launch_configuration = "${aws_launch_configuration.nv-dev-watermark-launch-config-}${count.index+one}"
+        launch_configuration = "${aws_launch_configuration.nv-dev-watermark-launch-config-}${count.index+one}.id"
         vpc_zone_identifier = ["${var.subnet_id}"]
         desired_capacity   = "${var.desired_count}"
         min_size = "${var.min_size}"
