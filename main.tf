@@ -16,6 +16,7 @@ resource "aws_launch_configuration" "nv-dev-launch-config" {
         associate_public_ip_address = "true"
         user_data = "${file("user-data.sh")}"
         lifecycle {
+                create_before_destroy = true
                 prevent_destroy = true
 
         }
