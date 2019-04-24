@@ -32,3 +32,6 @@ variable "avaliblity_zone" {
 variable "iam_role" {
         default = "admin_access"
 }
+variable "var_version" {
+        default = "V19.4.1"
+}
